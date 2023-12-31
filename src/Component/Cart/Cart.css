@@ -1,0 +1,62 @@
+/* Cart Styles */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  .card-link {
+    text-decoration: none;
+    color: inherit; /* Inherit text color from parent */
+  }
+  
+  .image-card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    height: 80%; /* Set a fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-image {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card-details {
+    padding: 15px;
+    flex: 1; /* Allow details to take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card-details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  .card-details p {
+    margin: 10px 0 0;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  .image-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Media Query for Responsive Design */
+  @media screen and (max-width: 768px) {
+    .image-gallery {
+      grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+  }
+  

@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import Home from './Component/Home/Home';
+import Layout from './Component/Layout/Layout';
+import ProductID from './Component/ProductID/ProductID';
+import { useState } from 'react';
+import CartShop from './Component/CarTShop/CartShop';
 
 function App() {
+  const [cart,setCart]=useState([])
+  const [cartCount,setCartCount]=useState(0)
+
+  const updateCount = (count)=>{
+    setCartCount(count)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Routes>
+      <Route element={<Layout/>}>
+        <Route index element={<Home/>}/>
+
+        <Route path='product/:id' element={<ProductID cart={cart} setCart={setCart}/>}/>
+        <Route path='cart' element={<CartShop updateCount={updateCount}/>}/>
+      </Route>
+    </Routes>
+    </BrowserRouter>
   );
 }
 
