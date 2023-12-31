@@ -9,7 +9,7 @@ const CartShop = ({updateCount}) => {
     const [orderPlaced,setOderPlaced]=useState(false)
     const navigate = useNavigate(); // Correctly using useNavigate as a function
 
-
+//asopadj
     useEffect(()=>{
         const savedCartItems =JSON.parse(localStorage.getItem('cartItems'));
         setCartItems(savedCartItems===null ? []:savedCartItems)
